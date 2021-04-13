@@ -13,7 +13,7 @@ const Login = (props) => {
     if (isAuthenticated) {
       props.history.push("/"); //redirect to home page
     }
-    if (error === "Invalid credentials") { 
+    if (error === "Invalid credentials") {
       setAlert(error, "danger");
       clearErrors();
     }
@@ -33,10 +33,10 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if(email === '' || password === ''){
+    if (email === "" || password === "") {
       setAlert("Please fill in all fields", "danger");
     } else {
-      login({email, password});
+      login({ email, password });
     }
   };
 
@@ -48,8 +48,13 @@ const Login = (props) => {
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={email} onChange={onChange} />
-          required
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={onChange}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="passwprd">Password</label>
@@ -65,7 +70,6 @@ const Login = (props) => {
           type="submit"
           value="Login"
           className="btn btn-primary btn-block"
-          
         />
       </form>
     </div>
