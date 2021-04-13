@@ -66,7 +66,7 @@ const AuthState = (props) => {
       loadUser();
 
     } catch (err) {
-      console.log("Error:", err.response.data.msg)
+      // console.log("Error:", err.response.data.msg)
       dispatch({
         type: REGISTER_FAILURE,
         payload: err.response.data.msg,
@@ -75,10 +75,36 @@ const AuthState = (props) => {
   };
 
   // Login User
-  const login = () => {};
+  const login = async (formData) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+    try {
+      // console.log(formData)
+      const res = await axios.post("/api/auth", formData, config); //?
+      
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+      });
+
+      loadUser();
+
+    } catch (err) {
+      // console.log("Error:", err.response.data.msg)
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err.response.data.msg,
+      });
+    }
+  };
 
   // Logout User
-  const logout = () => {};
+  const logout = () => {
+    dispatch({type: LOGOUT})
+  }
 
   // Clear Errors
   const clearErrors = () => {
