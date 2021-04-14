@@ -3,4 +3,4 @@ The code &amp; projects from Brad Traversy's React Bootcamps on Udemy (https://w
 
 github finder: https://myfirstreactproject-github-finder.netlify.app/user/mcaniglia16
 
-contact manager: in progress
+contact manager: https://agile-oasis-19099.herokuapp.com/login
