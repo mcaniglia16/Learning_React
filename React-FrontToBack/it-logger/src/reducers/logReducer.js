@@ -1,3 +1,4 @@
+import { bindActionCreators } from "redux";
 import {
   GET_LOGS,
   SET_LOADING,
@@ -8,6 +9,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_LOG,
+  SEARCH_LOGS,
 } from "../actions/types";
 
 const initialState = {
@@ -49,6 +51,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+      };
+    case SEARCH_LOGS:
+      return {
+        ...state,
+        logs: action.payload,
       };
     case SET_LOADING:
       return {
